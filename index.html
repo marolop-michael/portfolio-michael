@@ -10,278 +10,288 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            --primary: #003087;
-            --secondary: #0056b3;
+            --primary: #003087; /* Navy */
+            --secondary: #008080; /* Teal */
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #ffffff;
             color: #1e293b;
-            scroll-behavior: smooth;
         }
 
         .glass-nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid #f1f5f9;
         }
 
         .hero-section {
-            background: radial-gradient(circle at 10% 20%, rgba(0, 48, 135, 0.03) 0%, transparent 40%);
+            background: radial-gradient(circle at top right, #fcfdfe 0%, #ffffff 100%);
         }
 
-        .photo-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-
-        .photo-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: -15px;
-            bottom: -15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 1.5rem;
-            z-index: 0;
-        }
-
-        .skill-card {
-            border: 1px solid #f1f5f9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .skill-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
-            transform: translateY(-8px);
-        }
-
-        /* Typewriter Effect */
-        #typewriter::after {
-            content: '|';
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        .exp-card {
-            border-left: 3px solid #f1f5f9;
+        .card-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0, 48, 135, 0.05);
             transition: all 0.3s ease;
         }
 
-        .exp-card:hover {
-            border-left-color: var(--primary);
-            background: #f8fafc;
+        .card-shadow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px -5px rgba(0, 48, 135, 0.1);
         }
+
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
+    <!-- Navigasi -->
     <nav class="fixed w-full z-50 glass-nav">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg">M</div>
-                <span class="font-bold text-sm tracking-widest text-slate-800 uppercase">Michael M.</span>
+                <div class="w-10 h-10 bg-[#003087] rounded-lg flex items-center justify-center shadow-sm">
+                    <span class="text-white font-bold text-xl">M</span>
+                </div>
+                <span class="text-xl tracking-tight uppercase">
+                    <span class="font-extrabold text-primary">Marolop</span> 
+                    <span class="font-light text-primary">Michael</span>
+                </span>
             </div>
-            <div class="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
-                <a href="#home" class="hover:text-blue-900 transition">Profil</a>
-                <a href="#skills" class="hover:text-blue-900 transition">Kompetensi</a>
-                <a href="#experience" class="hover:text-blue-900 transition">Pengalaman</a>
-                <a href="#contact" class="hover:text-blue-900 transition">Kontak</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#profil" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Profil</a>
+                <a href="#pengalaman" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Pengalaman</a>
+                <a href="#keahlian" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Keahlian</a>
+                <a href="#kontak" class="btn-primary text-white px-6 py-2 rounded-md text-sm font-bold shadow-md">Kontak</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="hero-section pt-48 pb-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center gap-20">
-                <div class="w-full md:w-5/12 lg:w-4/12 flex-shrink-0 flex justify-center">
-                    <div class="photo-wrapper">
-                        <img src="1.png" 
-                             onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?fit=crop&w=600&h=800'"
-                             alt="Marolop Michael" 
-                             class="w-72 md:w-80 aspect-[3/4] object-cover rounded-[1.5rem] shadow-2xl relative z-10 bg-slate-50 grayscale-[20%] hover:grayscale-0 transition duration-500">
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero-section pt-48 pb-24 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="flex-1 space-y-8 text-center md:text-left">
+                <!-- Header Diperkuat menjadi lebih industrial -->
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-[1.2] tracking-tight text-slate-900">
+                    Optimasi Efisiensi <br>
+                    <span class="text-primary" id="typewriter"></span>
+                </h1>
+                <p class="text-lg text-slate-600 max-w-xl leading-relaxed mx-auto md:mx-0">
+                    Lulusan Matematika (B.Sc) dengan minat besar pada Industrial Operations & Supply Chain Support. Memiliki kompetensi analitis untuk mengelola data terstruktur dan melakukan optimasi alur kerja operasional.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
+                    <a href="mailto:michaelmarolop2025@gmail.com" class="btn-primary text-white px-8 py-3.5 rounded-lg font-bold flex items-center gap-3 shadow-md">
+                        <i class="fas fa-paper-plane"></i> Hubungi Saya
+                    </a>
+                    <a href="#pengalaman" class="border border-slate-200 text-slate-600 hover:bg-slate-50 px-8 py-3.5 rounded-lg font-bold transition">
+                        Lihat Portofolio
+                    </a>
                 </div>
-
-                <div class="w-full md:w-7/12 lg:w-8/12 text-center md:text-left">
-                    <div class="inline-flex items-center gap-3 px-4 py-1.5 bg-blue-50 text-blue-800 text-[10px] font-bold uppercase tracking-widest rounded-full mb-8">
-                        <span class="relative flex h-2 w-2">
-                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                          <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-                        </span>
-                        Matematika • UNY 2025
-                    </div>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-[1.2] mb-8 tracking-tight">
-                        Marolop Michael. <br>
-                        <span class="text-blue-800 font-bold">Focus:</span> <span id="typewriter" class="font-medium"></span>
-                    </h1>
-                    <p class="text-lg text-slate-600 mb-12 leading-relaxed font-medium max-w-2xl">
-                        Lulusan Matematika dengan spesialisasi pada analisis efisiensi sistem dan akurasi data. Memiliki pengalaman praktis dalam pengelolaan database operasional, validasi data berskala besar, serta digitalisasi dokumen administratif secara terstruktur.
-                    </p>
-                    <div class="flex flex-wrap justify-center md:justify-start gap-5">
-                        <a href="#contact" class="bg-slate-900 text-white px-10 py-4 rounded-xl font-bold text-sm hover:bg-blue-900 transition flex items-center gap-3 shadow-xl shadow-slate-200">
-                            Unduh CV & Kontak
-                        </a>
-                        <a href="https://www.linkedin.com/in/marolop-michael" target="_blank" class="border border-slate-200 px-10 py-4 rounded-xl font-bold text-sm hover:bg-slate-50 transition flex items-center gap-3 text-slate-700">
-                            <i class="fab fa-linkedin text-blue-600"></i> LinkedIn
-                        </a>
-                    </div>
+            </div>
+            <div class="relative">
+                <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-[12px] border-white">
+                    <img src="image_916025.png" alt="Marolop Michael" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-white p-5 rounded-xl shadow-lg border border-slate-50 hidden md:block">
+                    <p class="text-xs font-black text-primary uppercase tracking-widest mb-1">Status</p>
+                    <p class="text-sm font-bold text-slate-700">Willing to Relocate</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-32 bg-slate-50/50 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-20 text-center md:text-left">
-                <p class="text-blue-800 font-bold text-[10px] uppercase tracking-[0.3em] mb-4">Core Competencies</p>
-                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Kompetensi & Keahlian Teknis</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="skill-card bg-white p-10 rounded-3xl">
-                    <div class="w-14 h-14 bg-blue-50 text-blue-900 rounded-2xl flex items-center justify-center mb-8 text-2xl shadow-sm"><i class="fas fa-project-diagram"></i></div>
-                    <h3 class="font-bold text-xl mb-5 text-slate-900">Operations & Logistics</h3>
-                    <ul class="text-sm text-slate-500 space-y-4 font-medium">
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-1"></i> Analisis Sistem Antrean</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-1"></i> Optimasi Alur Kerja (Workflow)</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-blue-600 mt-1"></i> Pemetaan Proses Bisnis</li>
-                    </ul>
-                </div>
-                <div class="skill-card bg-white p-10 rounded-3xl">
-                    <div class="w-14 h-14 bg-indigo-50 text-indigo-900 rounded-2xl flex items-center justify-center mb-8 text-2xl shadow-sm"><i class="fas fa-database"></i></div>
-                    <h3 class="font-bold text-xl mb-5 text-slate-900">Data Administration</h3>
-                    <ul class="text-sm text-slate-500 space-y-4 font-medium">
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-indigo-600 mt-1"></i> Manajemen Dokumen Digital</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-indigo-600 mt-1"></i> Validasi & Cleansing Data</li>
-                        <li class="flex items-start gap-3"><i class="fas fa-check text-indigo-600 mt-1"></i> Support Administrasi SAP</li>
-                    </ul>
-                </div>
-                <div class="skill-card bg-white p-10 rounded-3xl border-slate-200">
-                    <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center mb-8 text-2xl shadow-lg"><i class="fas fa-tools"></i></div>
-                    <h3 class="font-bold text-xl mb-5 text-slate-900">Tools & Technology</h3>
-                    <div class="flex flex-wrap gap-2.5 mt-4">
-                        <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-[10px] font-bold tracking-wider uppercase">Advanced Excel</span>
-                        <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-[10px] font-bold tracking-wider uppercase">SQL</span>
-                        <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-[10px] font-bold tracking-wider uppercase">Python</span>
-                        <span class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-[10px] font-bold tracking-wider uppercase">Looker Studio</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-20">
-                <p class="text-blue-800 font-bold text-[10px] uppercase tracking-[0.3em] mb-4">Professional Record</p>
-                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Pengalaman Kerja & Proyek</h2>
-            </div>
-            
-            <div class="space-y-16">
-                <div class="exp-card p-10 rounded-2xl">
-                    <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
-                        <div>
-                            <h4 class="font-bold text-2xl text-slate-900 mb-1">Data & Operations Support</h4>
-                            <p class="text-slate-500 font-medium italic">PT Bank Tabungan Negara (Persero) Tbk</p>
-                        </div>
-                        <span class="text-[9px] font-bold text-slate-500 border border-slate-200 h-fit px-4 py-2 rounded-full uppercase tracking-widest bg-white">Magang • 2023</span>
-                    </div>
-                    <ul class="text-sm text-slate-600 space-y-4 leading-relaxed font-medium">
-                        <li class="flex items-start gap-4"><span class="w-1.5 h-1.5 bg-blue-800 rounded-full mt-2 flex-shrink-0"></span> Mengelola validasi 200+ rekam data debitur harian untuk memastikan integritas database operasional.</li>
-                        <li class="flex items-start gap-4"><span class="w-1.5 h-1.5 bg-blue-800 rounded-full mt-2 flex-shrink-0"></span> Mengeksekusi digitalisasi 100+ dokumen hukum guna mengoptimalkan waktu retrival data divisi.</li>
-                        <li class="flex items-start gap-4"><span class="text-blue-800 mt-0.5"><i class="fas fa-check-circle"></i></span> Hasil: Peningkatan efisiensi akses dokumen dan pengurangan erosi data input.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-card p-10 rounded-2xl">
-                    <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
-                        <div>
-                            <h4 class="font-bold text-2xl text-slate-900 mb-1">Queueing System Analyst</h4>
-                            <p class="text-slate-500 font-medium italic">UPT Puskesmas Purworejo (Penelitian)</p>
-                        </div>
-                        <span class="text-[9px] font-bold text-slate-500 border border-slate-200 h-fit px-4 py-2 rounded-full uppercase tracking-widest bg-white">Riset • 2025</span>
-                    </div>
-                    <ul class="text-sm text-slate-600 space-y-4 leading-relaxed font-medium">
-                        <li class="flex items-start gap-4"><span class="w-1.5 h-1.5 bg-blue-800 rounded-full mt-2 flex-shrink-0"></span> Menganalisis siklus pelayanan farmasi untuk mengidentifikasi bottleneck pada alur kerja operasional.</li>
-                        <li class="flex items-start gap-4"><span class="w-1.5 h-1.5 bg-blue-800 rounded-full mt-2 flex-shrink-0"></span> Merumuskan rekomendasi penambahan SDM berbasis simulasi model matematika untuk mereduksi waktu tunggu pasien.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 bg-slate-900 text-white px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-extrabold mb-8 tracking-tight">Siap Memulai Kolaborasi?</h2>
-            <p class="text-slate-400 mb-16 font-medium max-w-2xl mx-auto leading-relaxed italic text-lg">
-                "Saya berkomitmen pada detail dan efisiensi untuk memberikan hasil kerja terbaik bagi perusahaan Anda."
+    <!-- Profil Section -->
+    <section id="profil" class="py-24 px-6 bg-slate-50/50">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em]">Profil Profesional</h2>
+            <p class="text-2xl md:text-3xl font-bold text-slate-900 leading-snug">
+                "Mengintegrasikan Logika Matematika dengan <span class="text-secondary">Ketajaman Operasional</span>."
             </p>
-            
-            <div class="grid sm:grid-cols-2 gap-6 max-w-xl mx-auto mb-20">
-                <a href="https://wa.me/62895329606236" class="bg-green-600/10 border border-green-600/30 text-green-400 px-8 py-5 rounded-2xl font-bold flex items-center justify-center gap-4 hover:bg-green-600 hover:text-white transition-all duration-300">
-                    <i class="fab fa-whatsapp text-xl"></i> WhatsApp Direct
-                </a>
-                <a href="mailto:michaelmarolop2025@gmail.com" class="bg-white text-slate-900 px-8 py-5 rounded-2xl font-bold flex items-center justify-center gap-4 hover:bg-blue-50 transition-all duration-300">
-                    <i class="fas fa-envelope text-xl"></i> Kirim Email
-                </a>
+            <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3.31). Memiliki ketertarikan mendalam pada industri Oleokimia dan FMCG. Terbiasa mengelola data kompleks (>200 record) dan menganalisis sistem antrean untuk mengidentifikasi hambatan proses serta meningkatkan efisiensi operasional secara terukur.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pengalaman -->
+    <section id="pengalaman" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em] mb-4">Rekam Jejak & Amunisi Kerja</h2>
+                <h3 class="text-4xl font-extrabold text-slate-900">Pengalaman Relevan</h3>
             </div>
 
-            <div class="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 text-center md:text-left leading-relaxed">
-                    Marolop Michael • Portfolio 2025 <br>
-                    Yogyakarta, Indonesia
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Magang BTN -->
+                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-primary text-3xl">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-white bg-primary px-3 py-1 rounded-md uppercase">2023</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 leading-tight">Data & Operations Analyst (Intern)</h4>
+                    <p class="text-secondary font-bold text-sm mb-6 uppercase tracking-wider">Bank Tabungan Negara Tbk</p>
+                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Memproses 200+ record data debitur harian ke dalam sistem terstruktur.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Melakukan data cleaning & validation untuk memastikan integritas data.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Digitalisasi 100+ dokumen fisik menjadi arsip digital terorganisir.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Optimasi verifikasi administratif menggunakan Pivot Tables & Lookup.</li>
+                    </ul>
                 </div>
-                <div class="flex gap-8 text-white/30 text-xl">
-                    <a href="https://github.com/marolop-michael" target="_blank" class="hover:text-white transition"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/marolop-michael" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+
+                <!-- Tesis / Riset -->
+                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-secondary text-3xl">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-white bg-secondary px-3 py-1 rounded-md uppercase">Tesis</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 leading-tight">Modeling of Queueing Systems</h4>
+                    <p class="text-primary font-bold text-sm mb-6 uppercase tracking-wider">UPT Puskesmas Purworejo</p>
+                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Analisis mendalam pada 5–7 tahapan alur kerja pelayanan farmasi.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Identifikasi inefisiensi alur (bottleneck) melalui analisis waktu nyata.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Simulasi kebutuhan server optimal untuk menekan waktu tunggu pasien.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Memberikan rekomendasi strategis untuk efisiensi operasional.</li>
+                    </ul>
+                </div>
+
+                <!-- Bootcamp Data -->
+                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="text-slate-700 text-3xl">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <span class="text-[10px] font-bold text-white bg-slate-700 px-3 py-1 rounded-md uppercase">Bootcamp</span>
+                    </div>
+                    <h4 class="text-xl font-bold mb-1 leading-tight">Data Analyst Bootcamp</h4>
+                    <p class="text-slate-500 font-bold text-sm mb-6 uppercase tracking-wider">Skill Upgrade</p>
+                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Penggunaan SQL (BigQuery) untuk pengolahan dataset skala besar.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Python (Pandas) untuk Exploratory Data Analysis (EDA).</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Pengembangan dashboard interaktif menggunakan Looker Studio.</li>
+                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Penerapan statistika dan machine learning fundamental.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Academic Background -->
+    <section class="py-24 px-6 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em] mb-4">Academic Background</h2>
+                <h3 class="text-3xl font-bold text-slate-900">Mata Kuliah Penunjang Industri</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Operations Research</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Queueing Theory</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Statistics & Regression</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Linear Programming</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Data Mining</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Numerical Methods</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Database for Statistics</div>
+                <div class="bg-white p-4 rounded-xl border border-slate-100 text-center font-bold text-sm text-slate-700">Mathematical Modeling</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian -->
+    <section id="keahlian" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16">
+                <div class="md:w-1/3">
+                    <h2 class="text-xs font-black text-secondary uppercase tracking-[0.4em] mb-4">Skillset</h2>
+                    <h3 class="text-4xl font-bold mb-6">Kompetensi Teknis & Soft Skills</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Kombinasi kemampuan analitis matematis dengan alat modern untuk memecahkan masalah operasional yang kompleks.
+                    </p>
+                </div>
+                <div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-bold border-b border-white/10 pb-2">Technical Tools</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Advanced Excel</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">SQL (BigQuery)</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Python (Pandas)</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Looker Studio</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Statistical Analysis</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-lg font-bold border-b border-white/10 pb-2">Professional Skills</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Workflow Optimization</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Problem Solving</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Analytical Thinking</span>
+                            <span class="bg-white/10 px-4 py-2 rounded-lg text-sm">Teamwork & Coord.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="py-24 px-6">
+        <div class="max-w-3xl mx-auto text-center space-y-12">
+            <h3 class="text-4xl font-bold text-slate-900 tracking-tight">Mari Terkoneksi</h3>
+            <p class="text-slate-600">Terbuka untuk kesempatan karir di bidang operasional, administrasi data, dan supply chain support.</p>
+            <div class="flex justify-center gap-6">
+                <a href="mailto:michaelmarolop2025@gmail.com" class="w-14 h-14 flex items-center justify-center rounded-full border border-slate-200 hover:border-primary hover:text-primary transition shadow-sm text-xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/marolop-michael" target="_blank" class="w-14 h-14 flex items-center justify-center rounded-full border border-slate-200 hover:border-primary hover:text-primary transition shadow-sm text-xl">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://wa.me/62895329606236" target="_blank" class="w-14 h-14 flex items-center justify-center rounded-full border border-slate-200 hover:border-primary hover:text-primary transition shadow-sm text-xl">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-slate-100 text-center bg-slate-50">
+        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.3em]">&copy; 2026 Marolop Michael | Yogyakarta, Indonesia</p>
+    </footer>
 
     <script>
-        // Typewriter Effect Logic
         const textElement = document.getElementById('typewriter');
         const phrases = [
-            "Operational Administration.",
-            "Database Validation.",
-            "Workflow Optimization.",
-            "Data & Logistical Support."
+            "Operational Efficiency.",
+            "Supply Chain Support.",
+            "Process Optimization.",
+            "Data Accuracy."
         ];
-        let i = 0;
-        let j = 0;
-        let currentPhrase = [];
-        let isDeleting = false;
-        let speed = 100;
+        let i = 0; let j = 0; let currentPhrase = []; let isDeleting = false; let speed = 100;
 
         function loop() {
             textElement.innerHTML = currentPhrase.join('');
             if (i < phrases.length) {
                 if (!isDeleting && j <= phrases[i].length) {
-                    currentPhrase.push(phrases[i][j]);
-                    j++;
-                    speed = 70;
+                    currentPhrase.push(phrases[i][j]); j++; speed = 60;
                 }
                 if (isDeleting && j <= phrases[i].length) {
-                    currentPhrase.pop();
-                    j--;
-                    speed = 40;
+                    currentPhrase.pop(); j--; speed = 30;
                 }
                 if (j == phrases[i].length) {
-                    isDeleting = true;
-                    speed = 1800; // Jeda saat kalimat selesai
+                    isDeleting = true; speed = 2000; 
                 }
                 if (isDeleting && j === 0) {
-                    currentPhrase = [];
-                    isDeleting = false;
-                    i++;
+                    currentPhrase = []; isDeleting = false; i++;
                     if (i === phrases.length) i = 0;
                 }
             }
