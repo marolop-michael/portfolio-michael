@@ -27,7 +27,7 @@
         }
 
         .hero-section {
-            background: radial-gradient(circle at top right, #fcfdfe 0%, #ffffff 100%);
+            background: radial-gradient(circle at top right, #f8fafc 0%, #ffffff 100%);
         }
 
         .card-shadow {
@@ -48,6 +48,34 @@
         .btn-primary:hover {
             opacity: 0.9;
             transform: translateY(-1px);
+        }
+
+        /* Foto Masking & Deco */
+        .photo-container {
+            position: relative;
+            width: 320px;
+            height: 400px;
+        }
+        .photo-bg {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 24px;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        .photo-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            z-index: 10;
         }
 
         .text-primary { color: var(--primary); }
@@ -72,145 +100,248 @@
                 <a href="#profil" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Profil</a>
                 <a href="#pengalaman" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Pengalaman</a>
                 <a href="#keahlian" class="text-sm font-semibold text-slate-600 hover:text-primary transition">Keahlian</a>
-                <a href="#kontak" class="btn-primary text-white px-6 py-2 rounded-md text-sm font-bold shadow-md">Kontak</a>
+                <a href="#kontak" class="btn-primary text-white px-6 py-2 rounded-md text-sm font-bold shadow-md">Hubungi Saya</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-section pt-48 pb-24 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div class="flex-1 space-y-8 text-center md:text-left">
-                <h1 class="text-5xl md:text-6xl font-extrabold leading-[1.2] tracking-tight text-slate-900">
-                    Optimasi Efisiensi <br>
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <div class="flex-1 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary text-xs font-bold uppercase tracking-wider">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Siap Memberikan Dampak Operasional
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-slate-900">
+                    Mendorong Efisiensi Melalui <br>
                     <span class="text-primary" id="typewriter"></span>
                 </h1>
-                <p class="text-lg text-slate-600 max-w-xl leading-relaxed mx-auto md:mx-0">
-                    Lulusan Matematika (B.Sc) dengan minat besar pada Industrial Operations & Supply Chain Support. Memiliki kompetensi analitis untuk mengelola data terstruktur dan melakukan optimasi alur kerja operasional.
+                <p class="text-lg text-slate-600 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                    Lulusan Matematika (B.Sc) dengan ketajaman analitis dalam optimasi alur kerja dan manajemen data operasional. Berpengalaman dalam pengolahan data terstruktur dan analisis sistem untuk hasil kerja yang lebih presisi.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2">
-                    <a href="mailto:michaelmarolop2025@gmail.com" class="btn-primary text-white px-8 py-3.5 rounded-lg font-bold flex items-center gap-3 shadow-md">
-                        <i class="fas fa-paper-plane"></i> Hubungi Saya
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#kontak" class="btn-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 shadow-lg">
+                        Lihat Kontak & CV <i class="fas fa-arrow-right text-xs"></i>
                     </a>
-                    <a href="#pengalaman" class="border border-slate-200 text-slate-600 hover:bg-slate-50 px-8 py-3.5 rounded-lg font-bold transition">
+                    <a href="#pengalaman" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-xl font-bold transition">
                         Lihat Portofolio
                     </a>
                 </div>
             </div>
-            <div class="relative">
-                <div class="w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl border-[12px] border-white bg-slate-100">
-                    <!-- Menggunakan nama file 1.png sesuai permintaan -->
+            
+            <!-- Foto Profil -->
+            <div class="photo-container">
+                <div class="photo-bg"></div>
+                <div class="photo-frame">
                     <img src="1.png" alt="Marolop Michael" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Marolop+Michael&background=003087&color=fff&size=512'">
                 </div>
-                <div class="absolute -bottom-4 -right-4 bg-white p-5 rounded-xl shadow-lg border border-slate-50 hidden md:block">
-                    <p class="text-xs font-black text-primary uppercase tracking-widest mb-1">Status</p>
-                    <p class="text-sm font-bold text-slate-700">Willing to Relocate</p>
+                <!-- Tag Foto yang lebih profesional & fleksibel -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-blue-50 rounded-lg text-primary">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter leading-none mb-1">Expertise</p>
+                            <p class="text-sm font-bold text-slate-800 leading-none italic">Analytical & Ops Support</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bagian lainnya tetap sama untuk menjaga struktur profesional -->
-    <section id="profil" class="py-24 px-6 bg-slate-50/50">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em]">Profil Profesional</h2>
-            <p class="text-2xl md:text-3xl font-bold text-slate-900 leading-snug">
-                "Mengintegrasikan Logika Matematika dengan <span class="text-secondary">Ketajaman Operasional</span>."
-            </p>
-            <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
-                Lulusan Matematika dari Universitas Negeri Yogyakarta (IPK 3.31). Memiliki ketertarikan mendalam pada industri Oleokimia dan FMCG. Terbiasa mengelola data kompleks (>200 record) dan menganalisis sistem antrean untuk mengidentifikasi hambatan proses serta meningkatkan efisiensi operasional secara terukur.
-            </p>
+    <!-- Stats Ringkas -->
+    <section class="py-12 border-y border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center md:text-left border-l-4 border-primary pl-4">
+                    <p class="text-3xl font-extrabold text-primary">200+</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Debtor Records</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-secondary pl-4">
+                    <p class="text-3xl font-extrabold text-secondary">100+</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Docs Digitized</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-slate-200 pl-4">
+                    <p class="text-3xl font-extrabold text-slate-800">3.31</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">GPA / IPK</p>
+                </div>
+                <div class="text-center md:text-left border-l-4 border-primary pl-4">
+                    <p class="text-3xl font-extrabold text-primary">7+</p>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Steps Optimized</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Pengalaman -->
+    <!-- Pengalaman (Detail Lengkap Sesuai Master Biodata) -->
     <section id="pengalaman" class="py-24 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
-            <div class="mb-16">
-                <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em] mb-4">Rekam Jejak & Amunisi Kerja</h2>
-                <h3 class="text-4xl font-extrabold text-slate-900">Pengalaman Relevan</h3>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 border-b border-slate-100 pb-8">
+                <div>
+                    <h2 class="text-xs font-black text-primary uppercase tracking-[0.4em] mb-4">Pengalaman & Riset</h2>
+                    <h3 class="text-4xl font-extrabold text-slate-900 tracking-tight">Rekam Jejak Profesional</h3>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Magang BTN -->
-                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-primary text-3xl">
+                <!-- BTN -->
+                <div class="group p-8 rounded-3xl bg-white border border-slate-100 card-shadow flex flex-col hover:border-primary/20">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
                             <i class="fas fa-university"></i>
                         </div>
-                        <span class="text-[10px] font-bold text-white bg-primary px-3 py-1 rounded-md uppercase">2023</span>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Jan - Feb 2023</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-1 leading-tight">Data & Operations Analyst (Intern)</h4>
-                    <p class="text-secondary font-bold text-sm mb-6 uppercase tracking-wider">Bank Tabungan Negara Tbk</p>
-                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
-                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Memproses 200+ record data debitur harian ke dalam sistem terstruktur.</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Melakukan data cleaning & validation untuk memastikan integritas data.</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-secondary mt-1"></i> Digitalisasi 100+ dokumen fisik menjadi arsip digital terorganisir.</li>
+                    <h4 class="text-xl font-bold mb-1 leading-tight text-slate-900">Data & Operations Intern</h4>
+                    <p class="text-secondary font-bold text-xs mb-6 uppercase tracking-widest">Bank Tabungan Negara Tbk</p>
+                    <ul class="space-y-4 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-secondary mt-1 text-xs"></i> 
+                            Memproses 200+ record data debitur harian dengan akurasi tinggi ke sistem perbankan.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-secondary mt-1 text-xs"></i> 
+                            Melakukan data cleaning & validation lintas dataset untuk memastikan integritas data administrasi.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-secondary mt-1 text-xs"></i> 
+                            Digitalisasi & kategorisasi 100+ dokumen fisik menjadi struktur database yang mudah diakses.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-secondary mt-1 text-xs"></i> 
+                            Berhasil melakukan deteksi dan penghapusan data duplikat harian untuk efisiensi input.
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Tesis -->
-                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-secondary text-3xl">
-                            <i class="fas fa-vial"></i>
+                <div class="group p-8 rounded-3xl bg-white border border-slate-100 card-shadow flex flex-col hover:border-secondary/20">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-secondary text-2xl group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <span class="text-[10px] font-bold text-white bg-secondary px-3 py-1 rounded-md uppercase">Tesis</span>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Tesis Riset</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-1 leading-tight">Modeling of Queueing Systems</h4>
-                    <p class="text-primary font-bold text-sm mb-6 uppercase tracking-wider">UPT Puskesmas Purworejo</p>
-                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
-                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Analisis mendalam pada alur kerja pelayanan farmasi.</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Identifikasi bottleneck untuk efisiensi operasional.</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-primary mt-1"></i> Simulasi kebutuhan server optimal.</li>
+                    <h4 class="text-xl font-bold mb-1 leading-tight text-slate-900">Operations Research Analyst</h4>
+                    <p class="text-primary font-bold text-xs mb-6 uppercase tracking-widest">UPT Puskesmas Purworejo</p>
+                    <ul class="space-y-4 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-primary mt-1 text-xs"></i> 
+                            Menganalisis 5–7 tahapan alur kerja layanan farmasi menggunakan metode Queueing Theory.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-primary mt-1 text-xs"></i> 
+                            Mengidentifikasi inefisiensi alur (bottleneck) melalui analisis proses mendalam pada sistem layanan.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-primary mt-1 text-xs"></i> 
+                            Memberikan rekomendasi optimasi jumlah server untuk menyeimbangkan biaya dan waktu tunggu.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-primary mt-1 text-xs"></i> 
+                            Menyusun dataset terstruktur dari data mentah operasional puskesmas untuk dianalisis.
+                        </li>
                     </ul>
                 </div>
 
                 <!-- Bootcamp -->
-                <div class="p-8 rounded-2xl bg-white border border-slate-100 card-shadow flex flex-col">
-                    <div class="flex justify-between items-start mb-6">
-                        <div class="text-slate-700 text-3xl">
-                            <i class="fas fa-code"></i>
+                <div class="group p-8 rounded-3xl bg-white border border-slate-100 card-shadow flex flex-col hover:border-slate-400/20">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-700 text-2xl group-hover:bg-slate-700 group-hover:text-white transition-colors">
+                            <i class="fas fa-laptop-code"></i>
                         </div>
-                        <span class="text-[10px] font-bold text-white bg-slate-700 px-3 py-1 rounded-md uppercase">Bootcamp</span>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Bootcamp</span>
                     </div>
-                    <h4 class="text-xl font-bold mb-1 leading-tight">Data Analyst Bootcamp</h4>
-                    <p class="text-slate-500 font-bold text-sm mb-6 uppercase tracking-wider">Skill Upgrade</p>
-                    <ul class="space-y-3 text-sm text-slate-600 flex-grow">
-                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Penggunaan SQL & Python untuk pengolahan data.</li>
-                        <li class="flex gap-3"><i class="fas fa-check text-slate-400 mt-1"></i> Pengembangan dashboard interaktif Looker Studio.</li>
+                    <h4 class="text-xl font-bold mb-1 leading-tight text-slate-900">Data Analytics Trainee</h4>
+                    <p class="text-slate-500 font-bold text-xs mb-6 uppercase tracking-widest">Skill Upgrade</p>
+                    <ul class="space-y-4 text-sm text-slate-600 flex-grow">
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-slate-400 mt-1 text-xs"></i> 
+                            Menguasai SQL (BigQuery) untuk manipulasi dataset skala besar dengan logika pemrograman efisien.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-slate-400 mt-1 text-xs"></i> 
+                            Menerapkan konsep dasar pembersihan data (data cleaning) dan analisis tren bisnis.
+                        </li>
+                        <li class="flex gap-3 leading-relaxed">
+                            <i class="fas fa-check-circle text-slate-400 mt-1 text-xs"></i> 
+                            Visualisasi data melalui Looker Studio untuk laporan performa operasional yang terukur.
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Kontak -->
-    <section id="kontak" class="py-24 px-6">
-        <div class="max-w-3xl mx-auto text-center space-y-12">
-            <h3 class="text-4xl font-bold text-slate-900 tracking-tight">Mari Terkoneksi</h3>
-            <div class="flex justify-center gap-6">
-                <a href="mailto:michaelmarolop2025@gmail.com" class="w-14 h-14 flex items-center justify-center rounded-full border border-slate-200 hover:border-primary hover:text-primary transition shadow-sm text-xl">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/marolop-michael" target="_blank" class="w-14 h-14 flex items-center justify-center rounded-full border border-slate-200 hover:border-primary hover:text-primary transition shadow-sm text-xl">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+    <!-- Kontak & Footer -->
+    <section id="kontak" class="py-24 px-6 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-xs font-black text-secondary uppercase tracking-[0.4em] mb-4">Hubungi Saya</h2>
+                        <h3 class="text-4xl font-extrabold tracking-tight">Mari Berdiskusi Mengenai <span class="text-secondary">Efisiensi Bisnis Anda</span></h3>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed max-w-lg">
+                        Terbuka untuk posisi administrasi operasional, data management, atau supply chain support. Silakan salin detail di bawah ini atau hubungi langsung via platform sosial.
+                    </p>
+                </div>
+                
+                <div class="grid gap-4">
+                    <!-- Email Card -->
+                    <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-6 group hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Email Aktif</p>
+                            <a href="mailto:michaelmarolop2025@gmail.com" class="text-sm md:text-base font-bold text-white hover:text-secondary transition">michaelmarolop2025@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-6 group hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-green-500/20 text-green-400 flex items-center justify-center text-xl">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">WhatsApp / Mobile</p>
+                            <a href="https://wa.me/62895329606236" target="_blank" class="text-sm md:text-base font-bold text-white hover:text-secondary transition">+62 895 3296 06236</a>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <div class="p-6 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-6 group hover:bg-white/10 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">LinkedIn Profile</p>
+                            <a href="https://www.linkedin.com/in/marolop-michael" target="_blank" class="text-sm md:text-base font-bold text-white hover:text-secondary transition">linkedin.com/in/marolop-michael</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-slate-100 text-center bg-slate-50">
-        <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.3em]">&copy; 2026 Marolop Michael</p>
+    <footer class="py-12 text-center bg-slate-900 border-t border-white/5">
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em]">&copy; 2026 Marolop Michael | Yogyakarta, Indonesia</p>
     </footer>
 
     <script>
         const textElement = document.getElementById('typewriter');
         const phrases = [
-            "Operational Efficiency.",
-            "Supply Chain Support.",
-            "Process Optimization.",
-            "Data Accuracy."
+            "Operational Administration.",
+            "Database Validation.",
+            "Workflow Optimization.",
+            "Data & Logistical Support."
         ];
         let i = 0; let j = 0; let currentPhrase = []; let isDeleting = false; let speed = 100;
 
